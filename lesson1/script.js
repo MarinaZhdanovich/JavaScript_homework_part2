@@ -2,9 +2,13 @@
 const superLink = document.querySelector('#super_link');
 console.log(superLink);
 
+// или
+const superLink2 = document.getElementById('super_link')
+console.log(superLink2);
+
 // 2. Внутри всех элементов на странице, которые имеют класс "card-link", поменяйте текст внутри элемента на "ссылка".
 const cardLink = document.querySelectorAll('.card-link');
-cardLink.forEach((element) => element.textContent = 'ссылка'); 
+cardLink.forEach(element => element.textContent = 'ссылка');
 
 
 // 3. Найти все элементы на странице с классом "card-link", которые лежат в элементе с классом "card-body" и вывести полученную коллекцию в консоль.
@@ -12,9 +16,9 @@ const CardLinkInBody = document.querySelectorAll('.card-body .card-link');
 console.log(CardLinkInBody);
 
 // 4. Найти первый попавшийся элемент на странице у которого есть атрибут data-number со значением 50 и вывести его в консоль.
-
 const dataNumber50 = document.querySelector('[data-number="50"]');
 console.log(dataNumber50);
+
 // 5. Выведите содержимое тега title в консоль.
 const title = document.querySelector('title');
 console.log(title.textContent);
