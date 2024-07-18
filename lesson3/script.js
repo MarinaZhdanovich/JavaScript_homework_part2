@@ -36,7 +36,7 @@ ul.addEventListener('click', (e) => {
   if (e.target.nodeName === 'BUTTON') {
     console.log(e.target.textContent);
   }
-})
+});
 
 // 6. Вопрос: Почему в console.log пишется сначала текст из 5 задания и только потом выводится текст из 3 задания, если мы кликаем по кнопкам в ul? Ответ необходимо написать здесь же, под этим комментарием, своими словами.
 
@@ -51,4 +51,4 @@ for (let i = 0; i < li.length; i++) {
   if (i % 2 === 0) {
   li[i].style.backgroundColor ='purple';
  }
-}
+};
