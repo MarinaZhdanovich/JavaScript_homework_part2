@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 50px auto;
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 1600px;
+}
+
+.joke {
+  background-color: gray;
+  border: 1px solid #ddd;
+  width: 500px;
+  padding: 20px;
+}
+
+.joke h2 {
+  color: aqua;
+}
+
+.joke p {
+  color: aquamarine;
+}
