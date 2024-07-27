@@ -9,16 +9,15 @@
   margin: 50px auto;
 }
 
-body {
+.main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(10, 1fr);
   gap: 20px;
-  width: 1600px;
 }
 
 .joke {
   background-color: gray;
-  border: 1px solid #ddd;
   width: 500px;
   padding: 20px;
 }
@@ -29,4 +28,16 @@ body {
 
 .joke p {
   color: aquamarine;
+  margin-top: 20px;
+}
+
+.university {
+  background-color: silver;
+  border: 1px solid greenyellow;
+  width: 500px;
+  padding: 20px;
+}
+
+.university p {
+  margin-top: 20px;
 }

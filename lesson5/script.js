@@ -13,14 +13,39 @@
 
 const body = document.querySelector('body');
 const div = document.createElement('div');
+div.classList.add('main');
+
 body.appendChild(div);
 
 const parseData = JSON.parse(data);
 console.log(parseData);
 
-parseData.forEach(joke=> {
-  div.insertAdjacentHTML('beforebegin', `
+parseData.forEach(joke => {
+  div.insertAdjacentHTML('beforeend', `
     <div class="joke">
     <h2>${joke.setup}</h2>
-    <p>${joke.punchline}</p>`)
+    <p>${joke.punchline}</p>
+    </div>`)
 });
+
+
+const url = "http://universities.hipolabs.com/search?name=middle";
+async function getData(url) {
+  const response = await fetch(url);
+  const json = await response.json();
+  return json;
+}
+
+try {
+  const myData = await getData(url);
+  console.log(myData);
+  myData.forEach(university => {
+    div.insertAdjacentHTML("beforeend", `
+    <div class="university">
+    <h2>${university.country}</h2>
+    <p>${university.name}</p>
+    </div>`)
+  })
+} catch (error) {
+  console.log(`Ошибка ${error.message}`);
+}
