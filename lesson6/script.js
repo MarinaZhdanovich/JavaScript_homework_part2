@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async() => {
   data.forEach(element => {
     listProducts.insertAdjacentHTML('beforeend', `
       <div class="product">
-      <div class="${element.class}">
+        <div class="${element.class}">
 					<div class="shadowProduct hiddenshadowProduct">
 						<div class="btnProduct">
 							<button><img src="./img/forma_product.svg" alt="formaProduct" />Add to Cart</button>
@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', async() => {
 					<p> ${element.p}</p>
 					<h2>${element.price}</h2>
 				</div>
+      </div>
       `)
   });
 })
