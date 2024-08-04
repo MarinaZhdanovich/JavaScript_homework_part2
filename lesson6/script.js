@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
   if (window.location.pathname.includes('cart.html')) {
     displayCarts();
+    mainCartButtons();
   }
 
   updateCounter();
@@ -119,11 +120,13 @@ function displayCarts() {
       </div>
     `);
   });
+
   removeCart();
 }
 
 function removeCart() {
-  document.querySelectorAll('.productsCart__main_svg').forEach(svg => {
+  const closeButtons = document.querySelectorAll('.productsCart__main_svg')
+  closeButtons.forEach(svg => {
     svg.addEventListener('click', () => {
       const box = svg.closest('.productsCart__box');
       const index = box.dataset.index;
@@ -144,7 +147,7 @@ function removeBasket(index) {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
+function mainCartButtons() {
   const clearCartButton = document.querySelector('.productsCart__mainButtons_left');
   const continueShoppingButton = document.querySelector('.productsCart__mainButtons_right');
 
@@ -161,4 +164,5 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = 'index.html';
     });
   }
-});
+}
+
