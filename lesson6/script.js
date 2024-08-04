@@ -36,8 +36,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
     addToCartButtons();
   }
+
   if (window.location.pathname.includes('cart.html')) {
     displayCarts();
+    removeCart()
     mainCartButtons();
   }
 
@@ -120,20 +122,31 @@ function displayCarts() {
       </div>
     `);
   });
-
-  removeCart();
+  // removeCart(); если привязываемся к каждому элементу .productsCart__main_svg
 }
 
 function removeCart() {
-  const closeButtons = document.querySelectorAll('.productsCart__main_svg')
-  closeButtons.forEach(svg => {
-    svg.addEventListener('click', () => {
-      const box = svg.closest('.productsCart__box');
-      const index = box.dataset.index;
-      removeBasket(index);
-    });
-  });
-}
+  //   const closeButtons = document.querySelectorAll('.productsCart__main_svg') //нужно вызывать removeCart после каждого добавления новых элементов (function displayCarts() внутри removeCart();)
+  //   closeButtons.forEach(svg => {
+  //     svg.addEventListener('click', () => {
+  //       const box = svg.closest('.productsCart__box');
+  //       const index = box.dataset.index;
+  //       removeBasket(index);
+  //     });
+  //   });
+  // }
+  const cartContainer = document.querySelector('.productsCart__part1'); //делегирование событий
+  cartContainer.addEventListener('click', (e) => {
+    if (e.target.closest('.productsCart__main_svg')) {
+      const box = e.target.closest('.productsCart__box');
+      if (box) {
+        const index = box.getAttribute('data-index');
+        removeBasket(index)
+      }; //   если box.remove(); // удаление только из DOM
+    }
+  })
+};
+
 
 function removeBasket(index) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -165,4 +178,3 @@ function mainCartButtons() {
     });
   }
 }
-
