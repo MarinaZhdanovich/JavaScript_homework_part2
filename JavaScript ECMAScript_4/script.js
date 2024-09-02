@@ -11,7 +11,7 @@ function getUserData(id) {
       if (!response.ok) {
         throw new Error('User not found');
       }
-      return response.json();  // Извлечение данных о пользователе
+      return response.json();
     })
     .catch(error => {
       console.error(error.message);
@@ -53,7 +53,7 @@ getUserData(1)
 
 // saveUserData использует fetch для отправки данных о пользователе на удаленный сервер для сохранения. Она отправляет POST-запрос на URL-адрес /users
 // с указанием типа содержимого application/json и сериализует объект с данными о пользователе в JSON-строку с помощью JSON.stringify().
-// Если запрос успешен (с кодом 200), функция разрешает промис. Если запрос неуспешен, функция отклоняет промис с сообщени
+// Если запрос успешен (с кодом 200), функция разрешает промис. Если запрос неуспешен, функция отклоняет промис с сообщением
 
 function saveUserData(user) {
   return fetch('https://jsonplaceholder.typicode.com/users', {
