@@ -13,7 +13,7 @@ let countViewHome = 0;
 let countViewAbout = 0;
 
 const server = http.createServer((req, res) => {
-  console.log("Запрос получен");
+  console.log('Запрос получен');
 
   if (req.url === '/') {
     countViewHome++;
@@ -23,7 +23,7 @@ const server = http.createServer((req, res) => {
     res.end(`
       <h1>Корневая страница</h1>
       <p>Просмотров: ${countViewHome}</p>
-      <a href = "./about" > Ccылка на страницу /about</a>`);
+      <a href = '/about' > Ccылка на страницу /about</a>`);
   } else if (req.url === "/about") {
     countViewAbout++;
     res.writeHead(200, {
@@ -32,7 +32,7 @@ const server = http.createServer((req, res) => {
     res.end(`
       <h1>Страница about</h1>
       <p>Просмотров: ${countViewAbout}</p>
-      <a href = "./" > Ccылка на страницу /</a>`);
+      <a href = '/'> Ccылка на страницу /</a>`);
   } else {
     res.writeHead(404, {
       'Content-Type': 'text/html; charset=UTF-8'
