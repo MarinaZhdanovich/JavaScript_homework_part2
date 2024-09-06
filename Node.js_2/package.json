@@ -8,9 +8,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "colors": "^1.4.0",
-    "number-precision": "^1.6.0"
-  }
+  "description": ""
 }
