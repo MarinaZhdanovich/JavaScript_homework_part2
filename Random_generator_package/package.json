@@ -1,6 +1,6 @@
 {
   "name": "random_generator_package",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -9,7 +9,10 @@
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": ["random", "generator"],
+  "keywords": [
+    "random",
+    "generator"
+  ],
   "author": "Marina Zhdanovich",
   "license": "ISC",
   "description": "The library for generating random data"
