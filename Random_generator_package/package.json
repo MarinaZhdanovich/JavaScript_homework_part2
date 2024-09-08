@@ -1,0 +1,16 @@
+{
+  "name": "random_generator_package",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarinaZhdanovich/JavaScript_homework_part2"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["random", "generator"],
+  "author": "Marina Zhdanovich",
+  "license": "ISC",
+  "description": "The library for generating random data"
+}
