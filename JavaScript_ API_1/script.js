@@ -42,7 +42,7 @@ function displayClasses(classes) {
           <p>Максимум: ${item.maxParticipants}, Записано: ${item.currentParticipants}</p>
       </div>
       <div>
-          <button class="write-btn btn btn-success" data-id="${item.id}">
+          <button class="write-btn btn ${item.currentParticipants < item.maxParticipants ? 'btn-success' : 'btn-secondary'}" data-id="${item.id}">
               ${item.currentParticipants < item.maxParticipants ? "Записаться" : "Нет свободных мест"}
           </button>
           <button class="cancel-btn btn btn-danger" data-id="${item.id}" style="display: ${item.currentParticipants > 0 ? 'inline' : 'none'};">
