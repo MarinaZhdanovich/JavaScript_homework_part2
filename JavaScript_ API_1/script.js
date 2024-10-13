@@ -66,7 +66,6 @@ function displayClasses(classes) {
         classToWrite.currentParticipants++;
         localStorage.setItem('classes', JSON.stringify(classes));
         displayClasses(classes);
-        updateButton();
       }
     });
 
@@ -76,7 +75,6 @@ function displayClasses(classes) {
         classToCancel.currentParticipants--;
         localStorage.setItem('classes', JSON.stringify(classes));
         displayClasses(classes);
-        updateButton();
       }
     });
   });
