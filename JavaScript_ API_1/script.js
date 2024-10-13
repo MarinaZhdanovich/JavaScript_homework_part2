@@ -42,33 +42,41 @@ function displayClasses(classes) {
           <p>Максимум: ${item.maxParticipants}, Записано: ${item.currentParticipants}</p>
       </div>
       <div>
-          <button class="write-btn btn ${item.currentParticipants < item.maxParticipants ? 'btn-success' : 'btn-secondary'}" data-id="${item.id}">
-              ${item.currentParticipants < item.maxParticipants ? "Записаться" : "Нет свободных мест"}
+          <button class="write-btn btn btn-success" data-id="${item.id}">Записаться
           </button>
-          <button class="cancel-btn btn btn-danger" data-id="${item.id}" style="display: ${item.currentParticipants > 0 ? 'inline' : 'none'};">
-              Отменить запись
+          <button class="cancel-btn btn btn-danger" data-id="${item.id}">Отменить запись
           </button>
       </div>
     `;
     schedule.appendChild(classElement);
 
     const writeBtn = classElement.querySelector('.write-btn');
+    const cancelBtn = classElement.querySelector('.cancel-btn');
+
+    const updateButton = () => {
+      writeBtn.style.display = item.currentParticipants < item.maxParticipants ? 'inline' : 'none';
+      cancelBtn.style.display = item.currentParticipants > 0 ? 'inline' : 'none';
+    };
+
+    updateButton();
+
     writeBtn.addEventListener('click', () => {
       const classToWrite = classes.find(item => item.id === Number(writeBtn.dataset.id));
       if (classToWrite.currentParticipants < classToWrite.maxParticipants) {
         classToWrite.currentParticipants++;
         localStorage.setItem('classes', JSON.stringify(classes));
         displayClasses(classes);
+        updateButton();
       }
     });
 
-    const cancelBtn = classElement.querySelector('.cancel-btn');
     cancelBtn.addEventListener('click', () => {
       const classToCancel = classes.find(item => item.id === Number(cancelBtn.dataset.id));
       if (classToCancel.currentParticipants > 0) {
         classToCancel.currentParticipants--;
         localStorage.setItem('classes', JSON.stringify(classes));
         displayClasses(classes);
+        updateButton();
       }
     });
   });
