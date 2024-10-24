@@ -35,7 +35,7 @@ nextButton.addEventListener('click', () => {
 
 
 dots.forEach((dot, index) => {
-  dot.addEventListener('click', function () {
+  dot.addEventListener('click', () => {
     slideIndex = index;
     updateSlider();
   });
