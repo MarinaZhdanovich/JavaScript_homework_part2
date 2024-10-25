@@ -79,3 +79,68 @@ function displayClasses(classes) {
     });
   });
 };
+
+// явная ошибка страница перезагружается при каждом изменении (перезапись или отмена записи), что не соответствует требованию обновлять данные в реальном времени без перезагрузки
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const classes = JSON.parse(localStorage.getItem('classes'));
+//   displayClasses(classes);
+// });
+
+// function displayClasses(classes) {
+//   const schedule = document.querySelector('.schedule-list');
+//   schedule.innerHTML = "";
+
+//   classes.forEach(item => {
+//     const classElement = document.createElement("li");
+//     classElement.className = "list-group-item d-flex justify-content-between align-items-center";
+
+//     classElement.innerHTML = `
+//       <div>
+//           <h2>${item.name}</h2>
+//           <p>${item.time}</p>
+//           <p class="participants-info">Максимум: ${item.maxParticipants}, Записано: ${item.currentParticipants}</p>
+//       </div>
+//       <div>
+//           <button class="write-btn btn btn-success" data-id="${item.id}">Записаться</button>
+//           <button class="cancel-btn btn btn-danger" data-id="${item.id}">Отменить запись</button>
+//       </div>
+//     `;
+//     schedule.appendChild(classElement);
+
+//     const writeBtn = classElement.querySelector('.write-btn');
+//     const cancelBtn = classElement.querySelector('.cancel-btn');
+//     const participantsInfo = classElement.querySelector('.participants-info');
+
+//     const updateButton = () => {
+//       writeBtn.style.display = item.currentParticipants < item.maxParticipants ? 'inline' : 'none';
+//       cancelBtn.style.display = item.currentParticipants > 0 ? 'inline' : 'none';
+//     };
+
+//     updateButton();
+
+//     writeBtn.addEventListener('click', () => {
+//       const classToWrite = classes.find(item => item.id === Number(writeBtn.dataset.id));
+//       if (classToWrite.currentParticipants < classToWrite.maxParticipants) {
+//         classToWrite.currentParticipants++;
+//         localStorage.setItem('classes', JSON.stringify(classes));
+
+//         // Обновляем информацию о текущем занятии
+//         participantsInfo.textContent = `Максимум: ${classToWrite.maxParticipants}, Записано: ${classToWrite.currentParticipants}`;
+//         updateButton();
+//       }
+//     });
+
+//     cancelBtn.addEventListener('click', () => {
+//       const classToCancel = classes.find(item => item.id === Number(cancelBtn.dataset.id));
+//       if (classToCancel.currentParticipants > 0) {
+//         classToCancel.currentParticipants--;
+//         localStorage.setItem('classes', JSON.stringify(classes));
+
+//         // Обновляем информацию о текущем занятии
+//         participantsInfo.textContent = `Максимум: ${classToCancel.maxParticipants}, Записано: ${classToCancel.currentParticipants}`;
+//         updateButton();
+//       }
+//     });
+//   });
+// }
